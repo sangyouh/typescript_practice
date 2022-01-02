@@ -66,3 +66,38 @@ function addNum(x: number, y: number): number {
 function log(text: string | number): void {
   console.log(text);
 }
+
+//Interface
+interface User {
+  readonly id: number; //readonly 를 통해 다른 value를 assign 할 수 없게 한다.
+  name: string;
+  age?: number; // ? 를 통해 age 는 optional로 설정한다.
+}
+
+const user: User = {
+  id: 1,
+  name: "Sean",
+};
+
+//Interface Function
+interface MathFunc {
+  (x: number, y: number): number;
+}
+const add: MathFunc = (x: number, y: number): number => x + y;
+const subtract: MathFunc = (x: number, y: number): number => x - y;
+
+//Interface Classes
+class Person {
+  id: number;
+  name: string;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  register() {
+    return `${this.name} is registered`;
+  }
+}
+const sean = new Person(1, "Sean Mendez");
