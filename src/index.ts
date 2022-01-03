@@ -9,7 +9,7 @@ age = 28;
 
 let ids: any[] = [1, 2, 3, 4, 5];
 ids.push("Hello");
-console.log(ids);
+// console.log(ids);
 
 //Tuple
 let tuple: [number, string, any] = [1, "what", 3];
@@ -86,8 +86,14 @@ interface MathFunc {
 const add: MathFunc = (x: number, y: number): number => x + y;
 const subtract: MathFunc = (x: number, y: number): number => x - y;
 
+interface PersonInterface {
+  id: number;
+  name: string;
+  register(): string;
+}
+
 //Interface Classes
-class Person {
+class Person implements PersonInterface {
   id: number;
   name: string;
 
@@ -101,3 +107,23 @@ class Person {
   }
 }
 const sean = new Person(1, "Sean Mendez");
+
+//class extension (Subclasses)
+class Player extends Person {
+  position: string;
+
+  constructor(id: number, name: string, position: string) {
+    super(id, name);
+    this.position = position;
+  }
+}
+
+const lineBack = new Player(3, "Tommy", "Dunker");
+
+//Generics
+function getArray<T>(items: T[]): T[] {
+  return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1, 2, 3, 4]);
+let strArray = getArray<string>(["sean", "tommy", "john", "mike"]);

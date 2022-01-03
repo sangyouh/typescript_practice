@@ -8,33 +8,33 @@ let age;
 age = 28;
 let ids = [1, 2, 3, 4, 5];
 ids.push("Hello");
-console.log(ids);
+// console.log(ids);
 //Tuple
 let tuple = [1, "what", 3];
 //TupleArray
 let tupleArray = [
-    [1, "John"],
-    [2, "Sean"],
-    [3, "Logan"],
+  [1, "John"],
+  [2, "Sean"],
+  [3, "Logan"],
 ];
 //Union
 let unionExample = "29";
 //Enum
 var Direction;
 (function (Direction) {
-    Direction[Direction["Up"] = 0] = "Up";
-    Direction[Direction["Down"] = 1] = "Down";
-    Direction[Direction["Left"] = 2] = "Left";
-    Direction[Direction["Right"] = 3] = "Right";
+  Direction[(Direction["Up"] = 0)] = "Up";
+  Direction[(Direction["Down"] = 1)] = "Down";
+  Direction[(Direction["Left"] = 2)] = "Left";
+  Direction[(Direction["Right"] = 3)] = "Right";
 })(Direction || (Direction = {}));
 //Object
 const students = {
-    id: 1,
-    name: "Sean",
+  id: 1,
+  name: "Sean",
 };
 const students2 = {
-    id: 1,
-    name: "Sean",
+  id: 1,
+  name: "Sean",
 };
 //Type Assertion
 let pid = 2;
@@ -42,26 +42,40 @@ let productId = pid;
 let prodId = pid;
 //Function Declaration
 function addNum(x, y) {
-    return x + y;
+  return x + y;
 }
 // void return function
 function log(text) {
-    console.log(text);
+  console.log(text);
 }
 const user = {
-    id: 1,
-    name: "Sean",
+  id: 1,
+  name: "Sean",
 };
 const add = (x, y) => x + y;
 const subtract = (x, y) => x - y;
 //Interface Classes
 class Person {
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
-    register() {
-        return `${this.name} is registered`;
-    }
+  constructor(id, name) {
+    this.id = id;
+    this.name = name;
+  }
+  register() {
+    return `${this.name} is registered`;
+  }
 }
 const sean = new Person(1, "Sean Mendez");
+//class extension (Subclasses)
+class Player extends Person {
+  constructor(id, name, position) {
+    super(id, name);
+    this.position = position;
+  }
+}
+const lineBack = new Player(3, "Tommy", "Dunker");
+//Generics
+function getArray(items) {
+  return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(["sean", "tommy", "john", "mike"]);
